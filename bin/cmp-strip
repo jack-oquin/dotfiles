@@ -1,0 +1,38 @@
+#!/bin/sh
+
+#  compare two binaries, ignoring symbol tables.
+
+if [ $# -lt 2 ]
+then	echo "usage:	`basename $0` <file1> <file2>"
+	echo "or:	`basename $0` <file1> <directory>"
+	exit 9
+fi
+
+file1=$1
+if [ -d "$2" ]
+then	file2=$2/$file1
+else	file2=$2
+fi
+
+strip1=/tmp/`basename $file1`-1
+strip2=/tmp/`basename $file2`-2
+
+cp -f $file1 $strip1 && strip $strip1 && \
+cp -f $file2 $strip2 && strip $strip2
+
+if [ $? != 0 ]
+then	echo "unable to make comparison"
+	exit 1
+fi
+
+cmp $strip1 $strip2
+rc=$?
+
+if [ $rc == 0 ]
+then	echo "Stripped binaries are the same."
+else	echo "Stripped binaries differ."
+fi
+
+rm -f $strip1 $strip2
+
+exit $rc

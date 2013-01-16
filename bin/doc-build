@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# build the docs
+cd $(rospack find rosdoc)
+
+# use unbuilt tree to avoid rosdoc warnings about generated msg headers
+./rosdoc --paths=$HOME/svn/rosdoc/stacks -o ~/doc
+
+#./rosdoc --paths=$HOME/svn/utexas-art-ros-pkg/stacks -o ~/doc

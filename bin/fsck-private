@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# fsck my private encrypted files.
+
+LOOPDEV=/dev/loop7
+
+losetup -e aes -k 256 $LOOPDEV ~joq/.crypto
+fsck $LOOPDEV
+losetup -d $LOOPDEV

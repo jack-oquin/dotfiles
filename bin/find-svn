@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ "x$1" == "x" ] ||  [ "x$1" == "x--help" ]
+then	echo "usage: `basename $0` subtree [findopts]"
+	echo
+	echo "find files in subtree, ignoring .svn directories"
+	exit 9
+fi
+
+exec find $* ! -path '*/.svn*'

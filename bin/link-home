@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# link dotfiles into home directory
+#
+# command to fetch the files:
+#
+#    git clone git@github.com:jack-oquin/dotfiles.git .joq
+
+cd
+
+for f in .joq/* .joq/.??*
+do
+	test "$f" != ".joq/.git" && ln -sf $f .
+done

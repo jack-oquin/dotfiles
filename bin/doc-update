@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# upload to UT
+cd
+rsync -arv --delete doc nikon.cs.utexas.edu:public_html

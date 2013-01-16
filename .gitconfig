@@ -1,0 +1,19 @@
+[user]
+	email = jack.oquin@gmail.com
+	name = Jack O'Quin
+[alias]
+  up = pull origin
+  st = status
+  di = diff
+  co = checkout
+  ci = commit
+  br = branch
+  sta = stash
+[core]
+	autocrlf = input
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 1079x765+689+240
+	history-view-vpane-position = 482
+	file-view-vpane-position = 682
+	main-window-view = HistoryView

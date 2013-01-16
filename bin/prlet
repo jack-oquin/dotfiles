@@ -1,0 +1,16 @@
+#!/bin/sh
+#	The "fancy header" option (-G) works around a bug in the
+#	date conversion when using the default header.
+
+# This script has been changed to a simple workaround for the fact 
+# that "lpr -p" doesn't format things properly on my HP OfficeJet 
+# printer.  So, we intercept the '-p' option and use enscript to
+# format the file in that case.
+
+if [ "$1" = "-p" ]
+then	shift
+	exec enscript -G -i 0.75i $*
+else	exec lpr $*
+fi
+
+

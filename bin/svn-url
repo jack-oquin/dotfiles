@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#  print SVN URL
+
+svn info $1 | grep 'URL:' | cut -f2 -d' '

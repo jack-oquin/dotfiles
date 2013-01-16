@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#  make an MP3 file
+
+if [ "x$1" == "x" ] || [ "$1" == "--help" ] || [ "$1" == "-h" ]
+then	echo "usage: $0 <wavfile> [ <mp3file> ]"
+	exit 9
+fi
+
+wavfile=`basename $1 .wav`
+wavdir=`dirname $1`
+
+if [ "x$2" == "x" ]
+then	mp3file=$wavfile
+	mp3dir=$wavdir
+else	mp3file=`basename $2 .mp3`
+	mp3dir=`dirname $2`
+fi
+
+TERM=dumb exec lame -S -h $wavdir/$wavfile.wav $mp3dir/$mp3file.mp3

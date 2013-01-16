@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# rsync backup commands for joq@sodium.joq.us
+
+if [ "`id -u`" != "0" ]
+then	echo "You must be root to run this command."
+	exit 2
+fi
+
+HOST=`hostname | cut -d. -f1`
+B=/media/ieee1394disk/${HOST}
+
+# home directory
+rsync -av	--delete \
+		--exclude=private \
+		'--exclude=core*' \
+		--exclude=cvs \
+		--exclude=src \
+		--exclude=svn \
+		--exclude=.mozilla/firefox/gv7cs3vw.default/Cache
+		/home/joq	$B/home
+
+# some system files
+rsync -av	--delete --exclude=lost+found	/usr/local	$B/usr
+
+# general storage
+rsync -av	--delete --exclude=lost+found	/home/robot	$B/home
+

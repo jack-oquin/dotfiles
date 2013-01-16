@@ -1,0 +1,16 @@
+#!/bin/sh
+
+TMPFILE=/tmp/ignore.$$
+
+if [ $# -lt 2 ] ||  [ "x$1" == "x--help" ]
+then	echo "usage: `basename $0` ignorelist subtree"
+	echo
+	echo "add ignorelist to all svn:ignore properties in subtree"
+	exit 9
+fi
+
+for d in `find-svn $2 -type d`
+do
+	svn propget svn:ignore $d | cat - $1 | sort -u > $TMPFILE
+	svn propset svn:ignore -F $TMPFILE $d
+done

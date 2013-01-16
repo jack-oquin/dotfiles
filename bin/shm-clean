@@ -1,0 +1,18 @@
+#!/bin/sh
+
+#  clean up unused shared memory segments
+
+USER=joq
+###USER=`id -un`
+# having trouble substituing $USER in place of joq...
+SHMIDS=`ipcs -m | awk -- '$6 == 0 && $3 == "joq" {print $2}'`
+
+if [ "$SHMIDS" == "" ]
+then	echo No unused shared memory belonging to $USER.
+else
+	for shmid in $SHMIDS
+	do
+		echo -n "$shmid "
+		ipcrm shm $shmid
+	done
+fi

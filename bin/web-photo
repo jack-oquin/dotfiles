@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# resize photos for the web
+# photos from the camera typically have .JPG extension, resized ones .jpg
+
+for f in $*
+do
+	echo resizing \`${f}\'...
+	convert -resize 25% $f `basename $f .JPG`.jpg
+done

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# rsync backup commands for joq@sulphur.joq.us
+
+options=${1:-"-av"}	# default options
+
+rsync $options	--delete \
+		--exclude=lost+found \
+		--exclude=.svn \
+		--exclude=stow \
+		/usr/local	mercury:/w/sulphur/usr
+rsync $options	--delete \
+		--exclude=private \
+		--exclude=.svn \
+		'--exclude=core*' \
+		--exclude=.mozilla/default/fjf8graf.slt/Cache \
+		--exclude=.galeon/mozilla/galeon/Cache \
+		/home/joq	mercury:/w/sulphur/home
+
+rsync $options	--delete	/z/STELLA	mercury:/w/sulphur/z
+rsync $options	--delete	/z/AUDIO	mercury:/w/sulphur/z
+rsync $options			/z/cdroast	mercury:/w/sulphur/z
+
+rsync $options	--delete	/var/www	mercury:/w/sulphur/var/

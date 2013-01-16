@@ -1,0 +1,29 @@
+application/vnd.sun.xml.writer sxw
+application/vnd.sun.xml.writer.template stw
+application/vnd.sun.xml.writer.global sxg
+application/vnd.stardivision.writer sdw vor
+application/vnd.stardivision.writer-global sgl
+application/vnd.sun.xml.calc sxc
+application/vnd.sun.xml.calc.template stc
+application/vnd.stardivision.calc sdc
+application/vnd.sun.xml.impress sxi
+application/vnd.sun.xml.impress.template sti
+application/vnd.stardivision.impress sdd sdp
+application/vnd.sun.xml.draw sxd
+application/vnd.sun.xml.draw.template std
+application/vnd.stardivision.draw sda
+application/vnd.sun.xml.math sxm
+application/vnd.stardivision.math smf
+#--Netscape Communications Corporation MIME Information
+#Do not delete the above line. It is used to identify the file type.
+#
+type=audio/x-mpeg
+type=audio/x-mp3
+type=audio/x-mpegurl
+type=audio/x-scpls
+type=audio/mpeg
+type=audio/mp3
+type=audio/mpegurl
+type=audio/scpls
+type=application/vnd.rn-rn_music_package
+type=application/x-freeamp-theme
