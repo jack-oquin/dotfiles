@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# initialize user ID for ROS development
+
+# create a ROS console configuration file, if none exists
+ROS_CONFIG="$HOME/.ros/config"
+if [ ! -r "$ROS_CONFIG/rosconsole.config" ]
+then    mkdir -p $ROS_CONFIG
+        echo "# ROS console configuration" >> $ROS_CONFIG/rosconsole.config
+fi
+
+# install emacs ROS mode
+sudo apt-get install rosemacs-el

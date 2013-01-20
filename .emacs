@@ -188,7 +188,6 @@ Useful for terminals with backspace set to C-h" t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (if (getenv "ROS_ROOT")
     (progn
-      (push "~/emacsros" load-path)
       (if (require 'rosemacs "rosemacs" t)
 	  (progn
 	    (invoke-rosemacs)

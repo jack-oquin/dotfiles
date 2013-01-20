@@ -77,6 +77,9 @@ if [ -x /usr/bin/dircolors ] && [ "$TERM" != "dumb" ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# add local scripts to $PATH
+export PATH=$PATH:~/bin
+
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
