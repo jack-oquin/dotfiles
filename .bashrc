@@ -114,11 +114,16 @@ alias dr='env | fgrep ROS'
 
 ## set ROS overlay name (W is a symlink)
 OVR=W
-if [ -r ~/ros/$OVR/setup.bash ]
+if [ -r ~/ros/$OVR/setup.bash -o -r ~/ros/$OVR/devel/setup.bash ]
 then
         export ROS_MASTER_URI=http://$HOSTNAME.local:11311
 
-        source ~/ros/$OVR/setup.bash
+        # catkin workspaces are set up differently
+        if [ -r ~/ros/$OVR/devel/setup.bash ]
+        then    source ~/ros/$OVR/devel/setup.bash
+                export CATKIN_TEST_RESULTS_DIR=~/ros/$OVR/build/test_results
+        else    source ~/ros/$OVR/setup.bash
+        fi
 
         export ROS_HOME=~/.ros
         export ROSCONSOLE_CONFIG_FILE=$ROS_HOME/config/rosconsole.config
