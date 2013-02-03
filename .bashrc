@@ -101,7 +101,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-alias dr='env | fgrep ROS'
+alias dr="env | egrep 'ROS|CATKIN'"
 
 ## For ART landrobot run
 #export ART_INSTALL=$HOME/ART/install
