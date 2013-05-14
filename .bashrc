@@ -101,41 +101,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-alias dr="env | egrep 'ROS|CATKIN|CMAKE'"
-
-## For ART landrobot run
-#export ART_INSTALL=$HOME/ART/install
-#export PLAYERPATH=$ART_INSTALL/lib
-#export PATH=$PATH:$ART_INSTALL/bin
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PLAYERPATH:$PLAYER_INSTALL/lib
-
-# For Android Development Kit
-#export PATH=$PATH:~/Desktop/android-sdk-linux_86/tools
-
-## set ROS overlay name (W is a symlink)
-OVR=W
-if [ -r ~/ros/$OVR/setup.bash -o -r ~/ros/$OVR/devel/setup.bash ]
+SETUP_ROS=~/.setup_ros.bash
+if [ -r $SETUP_ROS ]
 then
-        export ROS_MASTER_URI=http://$HOSTNAME.local:11311
-
-        # catkin workspaces are set up differently
-        if [ -r ~/ros/$OVR/devel/setup.bash ]
-        then    source ~/ros/$OVR/devel/setup.bash
-                export CATKIN_TEST_RESULTS_DIR=~/ros/$OVR/build/test_results
-        else    source ~/ros/$OVR/setup.bash
-        fi
-
-        export ROS_HOME=~/.ros
-        export ROSCONSOLE_CONFIG_FILE=$ROS_HOME/config/rosconsole.config
-        export ROS_EMAIL=jack.oquin@gmail.com
-        export ROS_WORKSPACE=$(readlink -f ~/ros/$OVR)
-        export GAZEBO_MODEL_PATH=~/ros/gazebo/gazebo_models:${GAZEBO_MODEL_PATH}
-
-        # add art_run/bin to $PATH
-        if [ $(which rospack) ]
-        then ART_RUN=$(rospack find art_run 2>/dev/null)
-        fi
-        if [ "$ART_RUN" != "" ] && [ -d $ART_RUN/bin ]
-        then export PATH=$ART_RUN/bin:$PATH
-        fi
+    source $SETUP_ROS
 fi
