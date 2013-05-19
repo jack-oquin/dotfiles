@@ -4,10 +4,6 @@
 [alias]
   up = pull origin
   st = status
-  di = diff
-  co = checkout
-  ci = commit
-  br = branch
   sta = stash
 [core]
 	autocrlf = input
@@ -17,3 +13,5 @@
 	history-view-vpane-position = 482
 	file-view-vpane-position = 682
 	main-window-view = HistoryView
+[push]
+	default = matching
