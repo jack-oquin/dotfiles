@@ -111,3 +111,9 @@ if [ -r $SETUP_ROS ]
 then
     source $SETUP_ROS
 fi
+
+export GAZEBO__DIR="/usr/share/gazebo"
+if [ -r  ${GAZEBO__DIR}/setup.sh ]
+then
+    source ${GAZEBO__DIR}/setup.sh
+fi

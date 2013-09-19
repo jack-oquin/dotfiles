@@ -1,6 +1,6 @@
 ## bash setup for ROS development, invoke via "source" command
 
-alias dr="env | egrep 'ROS|CATKIN|CMAKE'"
+alias dr="env | egrep 'ROS|CATKIN|CMAKE|GAZEBO'"
 
 ## set ROS overlay name (W is a symlink)
 OVR=W
