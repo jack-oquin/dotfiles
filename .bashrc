@@ -77,6 +77,11 @@ if [ -x /usr/bin/dircolors ] && [ "$TERM" != "dumb" ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# use vim when git needs an editor, use emacs for more extensive work
+export VISUAL=vim
+export EDITOR=emacsclient
+
+
 # add local scripts to $PATH
 export PATH=$PATH:~/bin
 
