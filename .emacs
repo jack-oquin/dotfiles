@@ -184,16 +184,16 @@ Useful for terminals with backspace set to C-h" t)
 (define-key global-map "\M-\C-c" 'compile)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Robot Operating System tools -- requires environment settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Robot Operating System tools -- requires environment 
 (if (getenv "ROS_ROOT")
     (progn
       (if (require 'rosemacs "rosemacs" t)
-	  (progn
-	    (invoke-rosemacs)
-	    (global-set-key "\C-x\C-r" ros-keymap)
-	    (add-to-list 'auto-mode-alist '("\\.bmr$" . python-mode))
-	    ))
+          (progn
+            (invoke-rosemacs)
+            (global-set-key "\C-x\C-r" ros-keymap)
+            (add-to-list 'auto-mode-alist '("\\.bmr$" . python-mode))
+            (slime-setup '(slime-fancy slime-asdf slime-ros))
+            ))
       ))
 
 (setq inhibit-startup-message t)
