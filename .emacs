@@ -62,7 +62,8 @@
 
       (if (eq 0 (user-uid))	; running as "root"?
           (progn (set-background-color "wheat")
-                 (set-foreground-color "navyblue")))
+                 (set-foreground-color "navyblue"))
+        (set-background-color "ivory"))
       (transient-mark-mode t)
 
       (scroll-bar-mode 1)
