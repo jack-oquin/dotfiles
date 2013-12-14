@@ -21,12 +21,6 @@ then
         fi
     fi
 
-    # HACK: work around Hydro rosdistro bug
-    if [ "$ROS_ROOT" == "/opt/ros/hydro/share/ros" ]
-    then
-        export ROS_DISTRO="hydro"
-    fi
-
     export ROS_HOME=~/.ros
     export ROSCONSOLE_CONFIG_FILE=$ROS_HOME/config/rosconsole.config
     export ROS_EMAIL=jack.oquin@gmail.com
