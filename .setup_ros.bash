@@ -41,11 +41,11 @@ then
     then export PATH=$ART_RUN/bin:$PATH
     fi
 else                            # no ROS workspace
-    if [ -r /opt/ros/groovy/setup.bash ]
-    then    source /opt/ros/groovy/setup.bash
-    else                        # ROS groovy not installed
-        if [ -r /opt/ros/hydro/setup.bash -o -r /opt/ros/hydro/setup.bash ]
-        then    source /opt/ros/hydro/setup.bash
+    if [ -r /opt/ros/hydro/setup.bash ]
+    then    source /opt/ros/hydro/setup.bash
+    else                        # ROS hydro not installed
+        if [ -r /opt/ros/groovy/setup.bash ]
+        then    source /opt/ros/groovy/setup.bash
         fi
     fi
 fi
