@@ -1,5 +1,5 @@
 #!/bin/sh
 
-# upload to UT
-cd
-rsync -arv --delete doc nikon.cs.utexas.edu:public_html
+# upload to UTexas
+cd ~/doc
+scp -r -P40 * farnsworth.csres.utexas.edu:/var/www/docs
