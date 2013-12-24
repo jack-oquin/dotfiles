@@ -145,21 +145,28 @@
 ;;;	(these go last so other stuff can't easily override them)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'text-mode-hook '(lambda () (auto-fill-mode 1)))
-(add-hook 'python-mode-hook 'flyspell-prog-mode)
-(add-hook 'c-mode-hook 'flyspell-prog-mode)
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (highlight-lines-matching-regexp ".\\{81\\}" 'hi-yellow)
+             (setq comment-column 40)
+             (column-number-mode t)
+             (flyspell-prog-mode)))
 (add-hook 'c-mode-hook
 	  '(lambda ()
 	     (setq c-tab-always-indent	t
 		   parens-require-spaces nil
 		   comment-column 40)
+             (column-number-mode t)
+             (flyspell-prog-mode)
+             (highlight-lines-matching-regexp ".\\{81\\}" 'hi-yellow)
 	     (c-set-style "gnu")))	; for JAMin use "stroustrup"
 (setq c++-mode-hook c-mode-hook)	; use same options for C++
-(setq browse-url-new-window-p t)	; always use a new window for URLs
+;;(setq browse-url-new-window-p t)	; always use a new window for URLs
 ;;(setq find-file-hooks			; display full file name on modeline
 ;;      (cons '(lambda ()
 ;;	       (setq modeline-buffer-identification (list "%f")))
 ;;	    find-file-hooks))
-(setq auto-mode-alist (cons '("\\.pl$" . perl-mode) auto-mode-alist))
+;;(setq auto-mode-alist (cons '("\\.pl$" . perl-mode) auto-mode-alist))
 (setq shell-multiple-shells t)		; allow multiple shell windows
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
