@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find ~/.ros/log -mtime +${1:-45} | xargs  rm -rf {}
