@@ -147,7 +147,7 @@
 (add-hook 'text-mode-hook '(lambda () (auto-fill-mode 1)))
 (add-hook 'python-mode-hook
           '(lambda ()
-             (highlight-lines-matching-regexp ".\\{81\\}" 'hi-yellow)
+             (highlight-lines-matching-regexp ".\\{80\\}" 'hi-yellow)
              (setq comment-column 40)
              (column-number-mode t)
              (flyspell-prog-mode)))
@@ -158,7 +158,7 @@
 		   comment-column 40)
              (column-number-mode t)
              (flyspell-prog-mode)
-             (highlight-lines-matching-regexp ".\\{81\\}" 'hi-yellow)
+             (highlight-lines-matching-regexp ".\\{80\\}" 'hi-yellow)
 	     (c-set-style "gnu")))	; for JAMin use "stroustrup"
 (setq c++-mode-hook c-mode-hook)	; use same options for C++
 ;;(setq browse-url-new-window-p t)	; always use a new window for URLs
