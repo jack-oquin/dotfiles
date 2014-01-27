@@ -62,8 +62,7 @@
 
       (if (eq 0 (user-uid))	; running as "root"?
           (progn (set-background-color "wheat")
-                 (set-foreground-color "navyblue"))
-        (set-background-color "ivory"))
+                 (set-foreground-color "navyblue")))
       (transient-mark-mode t)
 
       (scroll-bar-mode 1)
@@ -233,4 +232,4 @@ Useful for terminals with backspace set to C-h" t)
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
+ '(default ((t (:inherit nil :stipple nil :background "grey80" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
