@@ -1,6 +1,7 @@
 ## bash setup for ROS development, invoke via "source" command
 
 alias dr="env | egrep 'ROS|CATKIN|CMAKE|GAZEBO'"
+alias rdi="roscd; rosdep install --from-paths src --ignore-src --rosdistro=hydro"
 
 ## set ROS overlay name (W is a symlink)
 OVR=W
