@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# run rosdoc_lite on this package
+pname=$(basename $(pwd))
+echo rosdoc_lite . -o ~/doc/$pname
+rosdoc_lite . -o ~/doc/$pname
