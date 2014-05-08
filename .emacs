@@ -148,6 +148,7 @@
           '(lambda ()
              (highlight-lines-matching-regexp ".\\{80\\}" 'hi-yellow)
              (setq comment-column 40)
+             (setq show-trailing-whitespace t)
              (column-number-mode t)
              (flyspell-prog-mode)))
 (add-hook 'c-mode-hook
