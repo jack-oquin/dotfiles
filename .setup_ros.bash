@@ -1,6 +1,6 @@
 ## bash setup for ROS development, invoke via "source" command
 
-alias dr="env | sort | egrep 'ROS|CATKIN|CMAKE|GAZEBO'"
+alias rosenv="env | sort | egrep 'ROS|CATKIN|CMAKE|GAZEBO'"
 alias rdi="roscd; rosdep install --from-paths src --ignore-src --rosdistro=hydro"
 alias ws='source $ROS_WORKSPACE/devel/setup.bash'
 
