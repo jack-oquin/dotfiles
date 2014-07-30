@@ -1,0 +1,6 @@
+#! /bin/sh
+
+distro=${1:-hydro}
+
+roscd
+echo rosdep install --from-paths src --ignore-src --rosdistro=$distro
