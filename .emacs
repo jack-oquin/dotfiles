@@ -194,17 +194,27 @@ Useful for terminals with backspace set to C-h" t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Robot Operating System tools -- requires environment 
 (if (getenv "ROS_ROOT")
-    (progn
-      (if (require 'rosemacs "rosemacs" t)
-          (progn
-            (invoke-rosemacs)
-            (global-set-key "\C-x\C-r" ros-keymap)
-            (add-to-list 'auto-mode-alist '("\\.bmr$" . python-mode))
-            (add-to-list 'auto-mode-alist '("\\.test$" . xml-mode))
-            (if (require 'slime "slime" t)
-                (slime-setup '(slime-fancy slime-asdf slime-ros)))
-            ))
-      ))
+  (progn
+    (if (version< emacs-version "24.3")
+        ;; for emacs 23
+        (if (require 'rosemacs "rosemacs" t)
+            (invoke-rosemacs))
+      (progn
+        ;; else emacs 24.3 or newer
+        (add-to-list 'load-path
+                     (concat "/opt/ros/"
+                             (getenv "ROS_DISTRO")
+                             "/share/emacs/site-lisp"))
+        (require 'rosemacs-config)
+        ))
+
+    (global-set-key "\C-x\C-r" ros-keymap)
+    (add-to-list 'auto-mode-alist '("\\.bmr$" . python-mode))
+    (add-to-list 'auto-mode-alist '("\\.test$" . xml-mode))
+    (add-to-list 'auto-mode-alist '("\\.launch$" . xml-mode))
+    (if (require 'slime "slime" t)
+        (slime-setup '(slime-fancy slime-asdf slime-ros)))
+    ))
 
 (setq inhibit-startup-message t)
 (message "Emacs personalization completed ")
