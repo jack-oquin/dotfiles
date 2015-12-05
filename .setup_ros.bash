@@ -12,6 +12,9 @@ export ROS_HOME=~/.ros
 export ROS_MASTER_URI=http://$HOSTNAME:11311
 export ROSCONSOLE_CONFIG_FILE=$ROS_HOME/config/rosconsole.config
 
+## UTexas CS settings
+export NH=nixons-head.csres.utexas.edu
+
 ## set ROS overlay name (W is a symlink)
 ###OVR=W
 ###export WS=$(readlink -f ~/ros/$OVR)
