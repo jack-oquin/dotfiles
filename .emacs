@@ -201,12 +201,15 @@ Useful for terminals with backspace set to C-h" t)
             (invoke-rosemacs))
       (progn
         ;; else emacs 24.3 or newer
-        (add-to-list 'load-path
-                     (concat "/opt/ros/"
-                             (getenv "ROS_DISTRO")
-                             "/share/emacs/site-lisp"))
-        (require 'rosemacs-config)
-        ))
+	(setq site-lisp-path (concat "/opt/ros/"
+				     (getenv "ROS_DISTRO")
+				     "/share/emacs/site-lisp"))
+	(if (file-readable-p site-lisp-path)
+	    ;; rosemacs is installed
+	    (progn
+	      (add-to-list 'load-path site-lisp-path)
+	      (require 'rosemacs-config))
+	  (message "rosemacs is not installed"))))
 
     (global-set-key "\C-x\C-r" ros-keymap)
     (add-to-list 'auto-mode-alist '("\\.bmr$" . python-mode))
