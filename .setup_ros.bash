@@ -4,6 +4,7 @@ alias e="env | sort | egrep 'ROS|CATKIN|CMAKE'"
 alias g='source /opt/ros/groovy/setup.bash'
 alias h='source /opt/ros/hydro/setup.bash'
 alias i='source /opt/ros/indigo/setup.bash'
+alias j='source /opt/ros/jade/setup.bash'
 alias ws='source ~/ros/ws/devel/setup.bash'
 
 ## global ROS environment settings
