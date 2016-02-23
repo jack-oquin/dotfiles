@@ -14,6 +14,7 @@ export ROS_MASTER_URI=http://$HOSTNAME:11311
 export ROSCONSOLE_CONFIG_FILE=$ROS_HOME/config/rosconsole.config
 
 ## UTexas CS settings
+export BL=".ros/bwi/bwi_logging"
 export CSRES=csres.utexas.edu
 export NH=nixons-head.$CSRES
 
