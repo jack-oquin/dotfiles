@@ -18,6 +18,13 @@ export BL=".ros/bwi/bwi_logging"
 export CSRES=csres.utexas.edu
 export NH=nixons-head.$CSRES
 
+## Segbot V3 settings
+export SEGWAY_INTERFACE_ADDRESS=10.66.171.1
+export SEGWAY_IP_ADDRESS=10.66.171.5
+export SEGWAY_IP_PORT_NUM=8080
+export SEGWAY_BASE_PLATFORM=RMP_210
+export SEGWAY_PLATFORM_NAME=RMP_210
+
 ## set ROS overlay name (W is a symlink)
 ###OVR=W
 ###export WS=$(readlink -f ~/ros/$OVR)
