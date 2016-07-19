@@ -6,13 +6,14 @@ alias h='source /opt/ros/hydro/setup.bash'
 alias i='source /opt/ros/indigo/setup.bash'
 alias j='source /opt/ros/jade/setup.bash'
 alias k='source /opt/ros/kinetic/setup.bash'
+alias ti='source ~/ros/trusty_indigo/devel/setup.bash'
 alias ws='source ~/ros/ws/devel/setup.bash'
 
 ## global ROS environment settings
 export ROS_EMAIL=jack.oquin@gmail.com
 export ROS_HOME=~/.ros
 export ROS_MASTER_URI=http://$HOSTNAME:11311
-export ROSCONSOLE_CONFIG_FILE=$ROS_HOME/config/rosconsole.config
+#export ROSCONSOLE_CONFIG_FILE=$ROS_HOME/config/rosconsole.config
 
 ## UTexas CS settings
 export BL=".ros/bwi/bwi_logging"
